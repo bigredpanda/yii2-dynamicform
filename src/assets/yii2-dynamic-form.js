@@ -390,8 +390,11 @@
         // "kartik-v/yii2-widget-fileinput"
         var $hasFileinput = $(widgetOptionsRoot.widgetItem).find('[data-krajee-fileinput]');
         if ($hasFileinput.length > 0) {
-            $hasFileinput.each(function() {
-                $(this).fileinput(eval($(this).attr('data-krajee-fileinput')));
+            $hasFileinput.each(function () {
+                let config = eval($(this).attr('data-krajee-fileinput'));
+                config.initialPreviewConfig = [];
+                config.initialPreview = [];
+                $(this).fileinput(config);
             });
         }
 
